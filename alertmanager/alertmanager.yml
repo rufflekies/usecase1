@@ -1,0 +1,14 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'rafliixyz@gmail.com'
+  smtp_auth_username: 'rafliixyz@gmail.com'
+  smtp_auth_password: 'hhwa nquz xivp zmir'
+
+route:
+  receiver: 'email-alert'
+
+receivers:
+  - name: 'email-alert'
+    email_configs:
+      - to: 'rafliixyz@gmail.com'
+        send_resolved: true

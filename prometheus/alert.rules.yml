@@ -1,0 +1,13 @@
+groups:
+  - name: filesystem-alerts
+    rules:
+      - alert: RootFSDiskUsageHigh
+        expr: |
+          (1 - (node_filesystem_avail_bytes{mountpoint="/",fstype!~"tmpfs|overlay"}
+                / node_filesystem_size_bytes{mountpoint="/",fstype!~"tmpfs|overlay"})) * 100 > 80
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Root filesystem usage high on {{ $labels.instance }}"
+          description: "The root (/) filesystem on {{ $labels.instance }} is above 80% usage."
