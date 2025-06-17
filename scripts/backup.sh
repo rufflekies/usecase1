@@ -4,7 +4,6 @@ source /root/usecase1/.env
 
 BACKUP_DIR="/root/usecase1/backup"
 
-# Timestamp buat log & nama file
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M")
 DATE_SAFE=$(date +"%Y-%m-%d_%H%M")
 
